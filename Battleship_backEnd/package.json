@@ -1,0 +1,23 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "Battleship back-end;",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitaRox/Battleship_backEnd.git"
+  },
+  "author": "Vita.Wiebe@seattlecolleges.edu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VitaRox/Battleship_backEnd/issues"
+  },
+  "homepage": "https://github.com/VitaRox/Battleship_backEnd#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
