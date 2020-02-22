@@ -1,0 +1,97 @@
+- maybe need to instantiate Ships inside hasSpace();
+
+- OR: make hasSpace() a method of Ship object; call as an instance method after each Ship is instantiated;
+
+- problem: how to refer to Cell in hasSpace()
+
+-use gameArray.peekBack() to get current empty Cell in array;
+
+
+*********************
+
+NEW APPROACH
+
+- represent states of array elements of gameArray with numbers, one for hit, one for miss, and one for each ship
+
+- back end: track each of these states, track each ship's hitPoints;
+	-- if ship: that ship's number/code
+	-- if miss: -1
+	-- if hit: 1
+	-- if empty/unguessed: 0 (could be ship or empty)
+
+- front-end: only water, miss, or hit pictures;
+	-- if unguessed at: water
+	-- else if hit: hit
+	-- else if miss: miss
+
+*********************
+CURRENT AS OF 10.FEB.2020
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.8.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.8.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
+*********************
+11.FEB.2020
+
+- function expressions aren't hoisted;
+- function expressions must be called like functions with ();
+
+*********************
+13.FEB.2020
+
+- gameArray being displayed/generated from top to bottom (reverse col and row somewhere);i.e. it is sideways
+- Ships still won't place; something about placement: maybe assign to an arrow function?
+- 'miss' works exactly as expected and updates both the gameArray and the displayed game board;
+*********************
+14.FEB.2020
+
+- figure out why guesses generate right coords, right index, but gameArray is sideways;
+- why do Ships place only after first guess?  need to initialize;
+- maybe remove href tag in dispBoard function? not in OG code;
+- 
+*********************
+15.FEB.2020
+
+Issues:
+- not all Ships are being placed for some reason;
+- figure out how to display game board in a grid;
+
+*********************
+16.FEB.2020
+
+Issues:
+- fails to place between 0-1 Ships on board;
+
+Next:
+- Reset git branch 'stage8' as new master: 
+	git checkout better_branch
+        git merge --strategy=ours master    # keep the content of this branch, but record                merge
+git checkout master
+git merge better_branch             # fast-forward master up to the merge
+
+- Fix minor Ship placement error;
+- Begin to implement backend using Node.js; save games, generate old game boards, save 		player scores;
+- Break code into separate HTML, CSS, JavaScript, and Node.js files;
+- Behavior-driven development/testing (end-to-end, unit tests;);
+
+**********************
+18.FEB.2020
+
+Issues:
+- Not all Ships place still;
+- shipsSunk does not update; 
+	-- Hits, however, does;
+	-- hitPoints of Ships are updating, too, making it curious as to why no alert;
+	-- HTML is not being updated for shipsSunk I think; could also use DOM updates to 		HTML instead of alerts, which are fucking obnoxious anyway; 
+	-- I believe shipsSunk is not being updated due to scope issues;
+- No alert when a Ship is sunk; 
+- Begin to create Node.js API for implementing back-end features (saving best games, 		etc.), app.js;
+
+https://github.com/VitaRox/Battleship_2.0.git

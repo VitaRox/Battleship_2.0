@@ -1,0 +1,28 @@
+{
+  "author": "Vita.Wiebe@seattlecolleges.edu",
+  "bugs": {
+    "url": "https://github.com/VitaRox/Battleship_2.0/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "description": "Battleship with server-side functionality;",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "homepage": "https://github.com/VitaRox/Battleship_2.0#readme",
+  "license": "ISC",
+  "main": "src/app.js",
+  "name": "battleship",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitaRox/Battleship_2.0.git"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node src/app.js",
+    "dev": "nodemon"
+  },
+  "version": "2.0.0"
+}
