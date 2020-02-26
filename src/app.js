@@ -3,7 +3,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const path = require('path');
-const routes = require('routes');
+// const router = require('routes');
+// Gets code to make board initially and subsequently;
+// When user hit main URL deliver 'battleship.html';
+
 /*
  Tells our program to use 'ejs' template engine;
  Leaving this off right now for simplicity's sake;
@@ -12,24 +15,32 @@ const routes = require('routes');
  app.set('view engine', 'ejs');
 */
 
-// Show server in what director to locate static files ('static' or 'public', usually);
-router.use(express.static(path.join(__dirname, `./public`)));
-router.use('/', routes());
+// Add the middleware router to the stack;
+// app.use('/', 'public');
+// app.use(express.static('public'));
+// Parse input strings;
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded(
+//   { extended: true }));
+
+// Router middleware;
+// Route user input ("GET" requests);
+router.get(`/`, (req, res) => {
+  res.sendFile(path.join(__dirname + `/public/battleship.html`));
+  // req.type('html');
+  // res.writeHead(200, {'Content-Type': 'text/html'});
+  // res.sendFile(('battleship.html/', { root: './public' }));
+ 
+});
+
+app.use('/', router);
+
+
 
 // Establish web server listening on an available port;
-const server = app.listen(port, () => {
-  console.log(`Scrubby bubby boo! ${port}!`);
-  
-});
+app.listen(port);
 
-// Parse input strings;
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded(
-  { extended: true }));
 
-router.post('/battleship.html/getUpdateDisplay()', (req, res, next) => {
-
-});
 // app.post('/', function (req, res) {
 //   const guessIndex = req.body;
 //   res.send(' Submitted Successfully!');
