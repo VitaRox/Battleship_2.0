@@ -1,12 +1,17 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
+const path = require('path');
 
-// Gets code to make board initially and subsequently;
-// When user hit main URL deliver 'battleship.html';
+// Show server in what directory to locate static files ('static' or 'public', usually);
+router.use(express.static(path.join('../views/battleship')));
+router.use(express.static(path.join('/public/images/')));
+
 module.exports = () => {
-  router.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname,`/public/battleship.html`));
-    // res.render(`public/battleship`, { pageTitle: "Battleship 2.0" });
+  app.get('/', function(req, res) {
+  // res.sendFile(path.join(`${__dirname} /views/`));
+  res.render("../views/battleship", { pageTitle: "Battleship 2.0" });
+  res.sendFile(express.static(path.join("../views/battleship.html")));
   });
   return router;
 };
